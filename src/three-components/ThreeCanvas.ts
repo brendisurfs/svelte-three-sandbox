@@ -1,18 +1,18 @@
 import {
-	BoxGeometry,
-	Mesh,
-	MeshNormalMaterial,
-	PerspectiveCamera,
-	Scene,
-	WebGLRenderer,
+    BoxGeometry,
+    Mesh,
+    MeshNormalMaterial,
+    PerspectiveCamera,
+    Scene,
+    WebGLRenderer,
 } from "three";
 
 // globals
 let renderer: WebGLRenderer;
 
 const sizes = {
-	width: window.innerWidth,
-	height: window.innerHeight,
+    width: window.innerWidth,
+    height: window.innerHeight,
 };
 
 // main components
@@ -29,20 +29,20 @@ camera.position.z = 5;
 
 // renders the scene constantly.
 const animate = () => {
-	requestAnimationFrame(animate);
-	renderer.setSize(sizes.width, sizes.height);
+    requestAnimationFrame(animate);
+    renderer.setSize(sizes.width, sizes.height);
 
-	cube.rotation.x += 0.01;
+    cube.rotation.x += 0.01;
 
-	// renderer
-	renderer.render(scene, camera);
+    // renderer
+    renderer.render(scene, camera);
 };
 
 const resize = () => {
-	sizes.width = window.innerWidth;
-	sizes.height = window.innerHeight;
-	camera.aspect = sizes.width / sizes.height;
-	renderer.setSize(sizes.width, sizes.height);
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
+    camera.aspect = sizes.width / sizes.height;
+    renderer.setSize(sizes.width, sizes.height);
 };
 window.addEventListener("resize", resize);
 
@@ -50,10 +50,10 @@ window.addEventListener("resize", resize);
  * CreateThreeScene - creates a Threejs render on the browser window from the specified code in the module.
  */
 export const CreateThreeScene = (el: Element) => {
-	renderer = new WebGLRenderer({
-		antialias: true,
-		canvas: el,
-	});
-	resize();
-	animate();
+    renderer = new WebGLRenderer({
+        antialias: true,
+        canvas: el,
+    });
+    resize();
+    animate();
 };
